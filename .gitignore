@@ -1,0 +1,52 @@
+# Personal data — never commit
+profile/candidate_profile.json
+profile/answer_bank.md
+resumes/*
+!resumes/.gitkeep
+
+# Live application data
+dashboard/*.csv
+!dashboard/*.template.csv
+# Per-application archive — copies of the résumé sent + full JD (PII)
+dashboard/applications/
+application_log.csv
+# Corrupted / backup copies of live data (never commit)
+dashboard/*.bak
+dashboard/*.corrupted*
+
+# Generated fill sheets — contain name, phone, email, pronouns, comp, and drafted answers
+fill_sheets/*
+!fill_sheets/.gitkeep
+
+# Scratch
+.DS_Store
+*.tmp
+
+# Portfolio site — its own repo (KIBA0993.github.io)
+portfolio/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Model-tiering eval (contains gold answers derived from PII)
+eval/
+
+# delta-sweep runtime cache (per-board ETags; changes every run)
+sources/etag_cache.json
+
+# verified-ATS graduation state (which provisional ATSes have a proven submit; local)
+sources/verified_ats.json
+
+# Mode B frozen authorized-set snapshots (per-run; company/title/url of the authorized batch)
+sources/run_*_authorized.json
+
+# Mode B per-run progress state (company/title/url of an in-flight batch; local, regenerated)
+sources/mode_b_run_progress*.json
+
+# sweep run outputs (JSONL postings + summary logs; regenerated every run)
+sources/sweep*.jsonl
+sources/sweep*.log
+
+# tamper-evident PII snapshots (local audit trail; never published)
+sources/integrity/

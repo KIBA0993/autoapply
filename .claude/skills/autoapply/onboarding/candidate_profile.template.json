@@ -1,0 +1,84 @@
+{
+  "_note": "STARTER TEMPLATE. Copy to profile/candidate_profile.json and fill from onboarding/intake.md. Replace every <…> placeholder. tools/profile_get.py fails closed: any field left as a placeholder or 'TBD' prints ASK: and the skill stops and asks — never guesses. So a field you can't answer yet is safe to leave; do not invent a value.",
+  "candidate": {
+    "legal_name": "<Legal Full Name>",
+    "preferred_name": "<Preferred, or same as legal>",
+    "email": "<email>",
+    "phone": "<+1 …>",
+    "current_location": "<City, State>",
+    "linkedin_url": "<url>",
+    "portfolio_url": "<url>",
+    "github_url": "<url or empty>",
+    "street_address": "<street>",
+    "zip_code": "<zip>",
+    "city": "<city>",
+    "state": "<state>",
+    "country": "<country>",
+    "education": "<see education[] below>"
+  },
+  "pronouns": "<pronouns>",
+  "current_status": {
+    "current_role_or_framing": "<how to frame current employment>",
+    "employment_status_answer": "<e.g. Employed full-time>",
+    "available_start_date": "<date or notice-based>",
+    "notice_period": "<e.g. 2 weeks>"
+  },
+  "work_authorization": {
+    "country": "<country>",
+    "current_authorization": "<e.g. Citizen / Authorized to work>",
+    "requires_sponsorship_now": "<Yes/No>",
+    "requires_sponsorship_in_future": "<Yes/No>",
+    "answer_exactly_as": "<optional exact wording for forms>",
+    "notes_for_unclear_forms": "Authorization and sponsorship are two different questions; answer both as given, never map one onto the other."
+  },
+  "compensation": {
+    "_two_different_uses": "screening_rule decides whether to apply; answer_strategy decides what to enter on a form. They are separate.",
+    "base_salary_floor": "<your screening floor in whole dollars, e.g. 150000>",
+    "stated_as": "USD base",
+    "screening_rule": "Apply only if the posting's published UPPER band >= base_salary_floor; a ceiling below it is a hard skip.",
+    "answer_strategy": "Defer wherever the field accepts text ('open / flexible / market'); enter the target number only where a number is mandatory.",
+    "field_handling": "<your target number in whole dollars, e.g. 185000>",
+    "notes": ""
+  },
+  "targets": {
+    "primary_role_families": ["<e.g. Product Manager>"],
+    "title_seniority_accepted": ["<e.g. Senior, Staff, Lead>"],
+    "roles_to_avoid": [],
+    "target_industries": [],
+    "industries_to_avoid": [],
+    "home_metro": "<metro>",
+    "remote_hybrid_onsite_preference": "<pref>",
+    "relocation_policy": "Answer Yes if ANY location on the eligible list appears.",
+    "location_gate": ["<eligible location>", "<eligible location>"]
+  },
+  "voluntary_self_identification": {
+    "strategy": "decline",
+    "fill_automatically": false,
+    "gender": "decline",
+    "race_ethnicity": "decline",
+    "veteran_status": "decline",
+    "disability_status": "decline",
+    "notes": "Decline / prefer-not-to-say / leave blank on all demographic fields unless the user opts in."
+  },
+  "years_experience": {
+    "product_management": "<N>",
+    "_basis": "<e.g. PM since 20XX>"
+  },
+  "education": [
+    {"degree": "<degree>", "institution": "<school>", "start": "<YYYY-MM>", "end": "<YYYY-MM>"}
+  ],
+  "resume_files": ["<see profile/resume_routing.md>"],
+  "never_guess": [
+    "compensation numbers", "work authorization / sponsorship wording",
+    "background check authorization (credit/criminal consent)", "exact degree dates",
+    "any field with no confirmed answer — print ASK and stop"
+  ],
+  "never_claim": {
+    "_why": "Terms the candidate must never be described as having — the skill refuses to submit anything asserting these.",
+    "_rule": "If a résumé draft or form answer drifts toward one of these, stop.",
+    "items": ["<term>"]
+  },
+  "confirmed_facts": {
+    "_note": "Verified specifics the candidate can cite (post-merger systems, named metrics, etc.). Empty at start; fill as confirmed."
+  }
+}

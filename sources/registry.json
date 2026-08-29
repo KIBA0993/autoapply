@@ -1,0 +1,32 @@
+{
+  "_note": "Company-specific lead SOURCES for firms NOT on Greenhouse/Ashby/Lever. Two adapter types. 'workday' -> driven by tools/fetch_workday.py (plain JSON, curl-friendly). 'custom_browser' -> the company's API blocks non-browser clients, so enumerate via claude-in-chrome at scan time (see playbooks/custom-sources.md). For EVERY entry here, applying is account-gated (Tier 4): surface the lead, hand the apply to the user. This file is the source of truth and is meant to GROW as prestige/unicorn companies are discovered. Verify host/site/api against the company's live careers URL before adding — never guess a tenant/datacenter.",
+  "sources": [
+    {
+      "company": "Visa",
+      "type": "smartrecruiters",
+      "sr_company": "Visa",
+      "apply": "browser",
+      "verified": "2026-08-05",
+      "note": "SmartRecruiters public postings API via tools/fetch_smartrecruiters.py. Enterprise regulated-finance/payments — relevant to the risk/identity slice. Apply form is the SmartRecruiters-hosted page (jobs.smartrecruiters.com/{co}/{id}); drive in browser, submit is the user's."
+    },
+    {
+      "company": "NVIDIA",
+      "type": "workday",
+      "host": "nvidia.wd5.myworkdayjobs.com",
+      "tenant": "nvidia",
+      "site": "NVIDIAExternalCareerSite",
+      "apply": "handoff",
+      "verified": "2026-08-05",
+      "note": "curl-friendly CXS API; 1126 PM results at verify time"
+    },
+    {
+      "company": "Microsoft",
+      "type": "custom_browser",
+      "board": "https://jobs.careers.microsoft.com/global/en/search?q=",
+      "api": "https://gcsservices.careers.microsoft.com/search/api/v1/search",
+      "apply": "handoff",
+      "verified": "2026-08-05",
+      "note": "API host returns HTTP 000 to curl (anti-bot) but careers.microsoft.com is reachable in a real browser. Enumerate via claude-in-chrome: open the board and read results, or fetch() the api from the page context where origin/TLS pass. OFF-STRATEGY: big-tech generalist req; see application_rules.md positioning."
+    }
+  ]
+}
